@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchContact, postContact } from "../store/action/actionCreator";
 import Cards from "../components/Cards";
 import { ToastContainer, toast } from "react-toastify";
+import React from "react";
 
 function HomePage() {
   const dispatch = useDispatch();
