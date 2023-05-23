@@ -57,11 +57,13 @@ function HomePage() {
       });
     }
   }
+
   useEffect(() => {
     dispatch(fetchContact()).then(() => {
       setLoading(false);
     });
   }, []);
+
   return (
     <>
       <ToastContainer />

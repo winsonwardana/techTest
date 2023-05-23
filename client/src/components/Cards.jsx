@@ -1,13 +1,38 @@
 import { useDispatch } from "react-redux";
 import { deleteContact } from "../store/action/actionCreator";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 function Cards({ data }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   function deleteById(id) {
     console.log(id, "idnya yg mo di delete");
-    dispatch(deleteContact(id));
+    dispatch(deleteContact(id))
+      .then(() => {
+        toast.success("Success delete contact", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      })
+      .catch((err) => {
+        toast.error(`${err.message}`, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      });
   }
   function onEdit(id) {
     console.log(id);

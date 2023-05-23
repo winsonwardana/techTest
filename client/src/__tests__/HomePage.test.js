@@ -12,6 +12,8 @@ describe("HomePage", () => {
       </Provider>
     );
     const titleElement = screen.getByText("Contact App");
+    const loadingElement = screen.getByText("Loading...");
+    expect(loadingElement).toBeInTheDocument();
 
     expect(titleElement).toBeInTheDocument();
   });
@@ -29,8 +31,8 @@ describe("HomePage", () => {
     const photoInput = screen.getByPlaceholderText("photo");
     const addButton = screen.getByText("Add new Contact");
 
-    fireEvent.change(firstNameInput, { target: { value: "John" } });
-    fireEvent.change(lastNameInput, { target: { value: "Doe" } });
+    fireEvent.change(firstNameInput, { target: { value: "Templar" } });
+    fireEvent.change(lastNameInput, { target: { value: "Assasin" } });
     fireEvent.change(ageInput, { target: { value: 25 } });
     fireEvent.change(photoInput, { target: { value: "example.jpg" } });
     fireEvent.click(addButton);

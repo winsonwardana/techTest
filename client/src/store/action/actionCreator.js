@@ -87,6 +87,7 @@ export function deleteContact(id) {
       dispatch(fetchContact());
     } catch (err) {
       console.log(err);
+      throw err;
     }
   };
 }
